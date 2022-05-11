@@ -1,35 +1,42 @@
 function Student(name, gender, age) {
-  let student1 = new Student("Tony", "male", 37);
-  let student2 = new Student("Buzz", "female", 35);
+  this.name = name;
+  this.gender = gender;
+  this.age = age;
+  return `name: ${this.name}, gender: ${this.gender}, age: ${this.age}`;
 };
 
 Student.prototype.setSubject = function (subjectName) {
-  let subject = new setSubject("");
+  let subject = this.subjectName;
+  return `subject: ${subject}`;
 };
 
 Student.prototype.addMark = function (mark) {
-  mark = new addMark(Number);
   let marks = [];
   if (this.marks === undefined) { 
-    mark = this.marks;
+    this.marks = this.mark;
   } else {
-    this.marks.push(mark);
+    this.marks.push(this.mark);
   };
 };
 
-Student.prototype.addMark = function (...mark) {
-  return `marks: ${marks}`;
+Student.prototype.addMarks = function (...mark) {
+  if (this.marks === undefined) { 
+    this.marks = this.mark;
+  } else {
+    this.marks.push(this.mark);
+  };
 };
 
 Student.prototype.getAverage = function () {
   let sum = 0;
-  for (let i = 0; i < length.marks; i++) {   
-    sum += marks[i];
+  for (let i = 0; i < this.marks.length; i++) {   
+    sum += this.marks[i];
   };
-  return Number((sum / marks.length).toFixed(2));
+  return Number((sum / this.marks.length).toFixed(2));
 };
 
 Student.prototype.exclude = function (reason) {
-  delete Student.prototype.setSubject, Student.prototype.addMark;
+  delete this.marks;
+  delete this.subject;
   this.exclude = "reason";
 };
