@@ -29,11 +29,11 @@ Student.prototype.getAverage = function () {
   for (let i = 0; i < this.marks.length; i++) {   
     sum += this.marks[i];
   };
-  Number((sum / this.marks.length).toFixed(2));
+  return Number(sum / this.marks.length);
 };
 
 Student.prototype.exclude = function (reason) {
   delete this.marks;
   delete this.subject;
-  this.exclude = reason;
+  this.excluded = reason;
 };
