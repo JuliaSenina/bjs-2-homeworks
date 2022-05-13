@@ -17,7 +17,7 @@ class PrintEditionItem {
     } else if (this.state > 100) {
       this.state = 100;
     } else {
-      this.state; 
+      this.fix(); 
     };
     this._stateBook = state;
   };
@@ -28,59 +28,66 @@ class PrintEditionItem {
 };
 
 class Magazine extends PrintEditionItem {
-    constructor(name, releaseDate, pagesCount) {
-        super.name;
-        super.releaseDate;
-        super.pagesCount;
-        super.state;
-        this.type = "magazine";
-      };
+  super(name, releaseDate, pagesCount) {
+    this.type = "magazine";
+  };
 };
 
 class Book extends PrintEditionItem {
-    constructor(name, releaseDate, pagesCount, author) {
-        this.author = author;
-        super.name;
-        super.releaseDate;
-        super.pagesCount;
-        super.state;
-        this.type = "book";
-      };
+  super(name, releaseDate, pagesCount, author) {
+    this.author = author;
+    this.type = "book";
+  };
 };
 
 class NovelBook extends Book {
-    constructor(name, releaseDate, pagesCount, author) {
-        super.author;
-        super.name;
-        super.releaseDate;
-        super.pagesCount;
-        super.state;
-        this.type = "novel";
-      };
+  super(name, releaseDate, pagesCount, author) {
+    this.type = "novel";
+  };
 };
 
 class FantasticBook extends Book {
-    constructor(name, releaseDate, pagesCount, author) {
-        super.author;
-        super.name;
-        super.releaseDate;
-        super.pagesCount;
-        super.state;
-        this.type = "fantastic";
-      };
+  super(name, releaseDate, pagesCount, author) {
+    this.type = "fantastic";
+  };
 };
 
 class DetectiveBook extends Book {
-    constructor(name, releaseDate, pagesCount, author) {
-        super.author;
-        super.name;
-        super.releaseDate;
-        super.pagesCount;
-        super.state;
-        this.type = "detective";
-      };
+  super(name, releaseDate, pagesCount, author) {
+    this.type = "detective";
+  };
 };
 
+// Задача №2 //
 
+class Library {
+  constructor(name) {
+    this.name = name;
+    this.books = [];
+  };
+
+  addBook(book) {
+    if (this.state > 30) {
+      this.books.push(book);
+    };
+  };
+
+  findBookBy(type, value) {
+    if (type != undefined && value != undefined) {
+      this.name;
+    } else {
+      null;
+    };
+  };
+
+  giveBookByName(bookName) {
+    if (bookName != undefined) {
+      delete this.books[bookName];
+      return bookName;
+    } else {
+      null;
+    };
+  };
+};
 
 
