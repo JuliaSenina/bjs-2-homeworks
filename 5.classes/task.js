@@ -8,52 +8,56 @@ class PrintEditionItem {
   };
   
   fix() {
-    this.state * 1.5;
+    this.state *= 1.5;
   };
 
-  set stateBook(state) {
+  set state(state) {
     if (this.state < 0) {
       this.state = 0;
     } else if (this.state > 100) {
       this.state = 100;
-    } else {
-      this.fix(); 
     };
-    this._stateBook = state;
+
+    this._state = state;
   };
 
-  get stateBook() {
-    return this._stateBook;
+  get state() {
+    return this._state;
   };
 };
 
 class Magazine extends PrintEditionItem {
-  super(name, releaseDate, pagesCount) {
+  constructor(name, releaseDate, pagesCount) {
+    super(name, releaseDate, pagesCount);
     this.type = "magazine";
   };
 };
 
 class Book extends PrintEditionItem {
-  super(name, releaseDate, pagesCount, author) {
+  constructor(author, name, releaseDate, pagesCount) {
+    super(name, releaseDate, pagesCount);
     this.author = author;
     this.type = "book";
   };
 };
 
 class NovelBook extends Book {
-  super(name, releaseDate, pagesCount, author) {
+  constructor(author, name, releaseDate, pagesCount) {
+    super(author, name, releaseDate, pagesCount);
     this.type = "novel";
   };
 };
 
 class FantasticBook extends Book {
-  super(name, releaseDate, pagesCount, author) {
+  constructor(author, name, releaseDate, pagesCount) {
+    super(author, name, releaseDate, pagesCount);
     this.type = "fantastic";
   };
 };
 
 class DetectiveBook extends Book {
-  super(name, releaseDate, pagesCount, author) {
+  constructor(author, name, releaseDate, pagesCount) {
+    super(author, name, releaseDate, pagesCount);
     this.type = "detective";
   };
 };
@@ -73,19 +77,19 @@ class Library {
   };
 
   findBookBy(type, value) {
-    if (type != undefined && value != undefined) {
-      this.name;
+    if (Library.books.find(type, value) === true) {
+      return this.name;
     } else {
-      null;
+      return null;
     };
   };
 
   giveBookByName(bookName) {
-    if (bookName != undefined) {
+    if (Library.books.find(bookName) === true) {
       delete this.books[bookName];
       return bookName;
     } else {
-      null;
+      return null;
     };
   };
 };
