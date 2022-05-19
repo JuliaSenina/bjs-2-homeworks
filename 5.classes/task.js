@@ -71,27 +71,29 @@ class Library {
   };
 
   addBook(book) {
-    if (this.state > 30) {
+    if (book.state > 30) {
       this.books.push(book);
     };
   };
 
   findBookBy(type, value) {
-    if (Library.books.find(type, value) === true) {
-      return this.name;
-    } else {
-      return null;
+    for (let i = 0; i < this.books.lenght; i++) {
+      if (this.book[type] === value) {
+        return this.name;
+      } else {
+        return null;
+      };
     };
   };
 
   giveBookByName(bookName) {
-    if (Library.books.find(bookName) === true) {
-      delete this.books[bookName];
-      return bookName;
-    } else {
-      return null;
+    for (let i = 0; i < this.books.lenght; i++) {
+      if (bookName != undefined) {
+        delete this.books[bookName];
+        return bookName;
+      } else {
+        return null;
+      };
     };
   };
-};
-
-
+}
