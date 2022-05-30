@@ -44,12 +44,13 @@ function getTriangle(a, b, c) {
     return new Triangle(a, b, c);
   } catch(err) {
     const wrongTriangle = new Object();
-    return wrongTriangle;
-    wrongTriangle.getArea() {
-      return "Ошибка! Треугольник не существует";
-    };
-    wrongTriangle.getPerimeter() {
-      return "Ошибка! Треугольник не существует";
+    return wrongTriangle = {
+      wrongTriangle.getArea() {
+        return "Ошибка! Треугольник не существует";
+      };
+      wrongTriangle.getPerimeter() {
+        return "Ошибка! Треугольник не существует";
+      };
     };
   };
 }
