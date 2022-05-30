@@ -35,14 +35,21 @@ class Triangle {
   
   getArea() {
     const p = getPerimeter() / 2;
-    return (Math.sqrt(p(p - this.a)(p - this.b)(p - this.c))).toFixed(3);
+    return Number((Math.sqrt(p(p - this.a)(p - this.b)(p - this.c))).toFixed(3));
   };
 };
 
 function getTriangle(a, b, c) {
   try {
-    return new Object(Triangle);
+    return new Triangle(a, b, c);
   } catch(err) {
-    
-  }
+    const wrongTriangle = new Object();
+    return wrongTriangle;
+    wrongTriangle.getArea() {
+      return "Ошибка! Треугольник не существует";
+    };
+    wrongTriangle.getPerimeter() {
+      return "Ошибка! Треугольник не существует";
+    };
+  };
 }
