@@ -8,13 +8,14 @@ class AlarmClock {
     if (id === undefined) {
       throw new Error("error text")
     };
-    
-    this.alarmCollection.some(clock => clock.id === id); 
-    console.error("error text");
-    this.alarmCollection.push({id, date, func});
+
+    if (this.alarmCollection.some(clock => clock.id === id) === true) {
+      console.error("error text");
+    } else {
+      this.alarmCollection.push({id, date, func});
+    }
   };
   
-
   removeClock(id) {
     let initialLength = this.alarmCollection.length;
     this.alarmCollection = this.alarmCollection.filter(clock => clock.id !== id);
@@ -28,7 +29,7 @@ class AlarmClock {
 
   start() {
     let checkClock = (clock) => {
-      if (clock.date === this.getCurrentFormattedTime) {
+      if (clock.date === this.getCurrentFormattedTime()) {
         return clock.func();
       };
     };
@@ -57,11 +58,11 @@ class AlarmClock {
   };
 };
 
-let PhoneAlarmClock = new AlarmClock();
-PhoneAlarmClock.addClock('11:10', () => console.log ('Доброе утро!'), 1);
-PhoneAlarmClock.addClock('11:11', () => console.log ('Уже менее доброе утро!'), 2);
-PhoneAlarmClock.removeClock(2);
-PhoneAlarmClock.addClock('11:13', () => console.log ('Совсем недоброе утро!'), 3);
-PhoneAlarmClock.start();
-PhoneAlarmClock.stop();
-PhoneAlarmClock.printAlarms();
+let phoneAlarmClock = new AlarmClock();
+phoneAlarmClock.addClock('11:10', () => console.log ('Доброе утро!'), 1);
+phoneAlarmClock.addClock('11:11', () => console.log ('Уже менее доброе утро!'), 2);
+phoneAlarmClock.removeClock(2);
+phoneAlarmClock.addClock('11:13', () => console.log ('Совсем недоброе утро!'), 3);
+phoneAlarmClock.start();
+phoneAlarmClock.stop();
+phoneAlarmClock.printAlarms();
