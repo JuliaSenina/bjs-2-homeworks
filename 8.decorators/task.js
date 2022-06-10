@@ -37,14 +37,14 @@ function debounceDecoratorNew(func, ms) {
 };
 
 function debounceDecorator2(func, ms) {
+  let count = 0;
   let timeout;
   return function wrapper (...args) {
     if (!timeout) {
       func(...args);
     };  
-    
-    wrapper.history = Number;
-    func.apply(this, args);
+  
+    wrapper.history = ++count;
     clearTimeout(timeout);
     timeout = setTimeout(func, ms, ...args);
   };   
